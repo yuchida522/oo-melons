@@ -21,11 +21,11 @@ class AbstractMelonOrder():
 
     def get_base_price(self):
 
-        base_price = random.randint(5, 9)
+        base_price = random.randint(5, 10)
 
         now = datetime.datetime.now()
 
-        if now.strftime("%a") != 'Saturday' and now.strftime("%a") != 'Sunday' and 8 <= now.hour <= 11:
+        if now.weekday() < 5 and 8 <= now.hour <= 11:
             base_price += 4
        
         return base_price
